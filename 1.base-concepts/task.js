@@ -4,21 +4,20 @@ function solveEquation(a, b, c) {
   let arr = [];
   let d = b ** 2 - 4 * a * c;
 
-  switch (d) {
-    case (d < 0):
-      arr.push();
-      break;
-
-    case (d === 0 ):
-      arr.push(-b / (2*a))
-      break;
-
-    case (d > 0):
-      arr.push(-b + Math.sqrt(d) / (2 * a));
-      break;
+  if (d < 0){
+    arr.push();
+  } 
+  
+  if (d === 0){
+      arr.push(-b / (2 * a));
+  } 
+  
+  if (d > 0) {
+      arr.push((-b + Math.sqrt(d)) / (2 * a));
+      arr.push((-b - Math.sqrt(d)) / (2 * a));
   }
 
-  return arr; // array
+  return arr; 
 }
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
