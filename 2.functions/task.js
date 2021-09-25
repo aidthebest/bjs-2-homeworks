@@ -2,9 +2,7 @@
 function getArrayParams(arr) {
   let min = Infinity, max = -Infinity, sum = 0, avg;
 
-  let i
-
-  for (i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
     if (arr[i] < min) {
       min = arr [i];
     }
@@ -31,8 +29,9 @@ function worker(arr) {
 function makeWork(arrOfArr, func) {
   let max = -Infinity;
   for (let i = 0; i < arrOfArr.length; i++) {
-    if (max < func(arrOfArr[i])) {
-      max = func(arrOfArr[i]);
+    let result = func(arrOfArr[i]);
+    if (max < result) {
+      max = result;
     }
   }
   return max
