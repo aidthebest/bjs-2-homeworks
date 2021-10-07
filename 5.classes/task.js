@@ -25,39 +25,66 @@ class PrintEditionItem {
     }
 }
 
-class Magazine extends PrintEditionItem() {
-    constructor(name, releaseDate, pagesCount, author) {
+class Magazine extends PrintEditionItem {
+    constructor(name, releaseDate, pagesCount) {
         super(name, releaseDate, pagesCount);
-        this.author = author;
         this.type = "magazine";    
     }   
 }
 
-class Book extends PrintEditionItem() {
-    constructor(name, releaseDate, pagesCount, author) {
+class Book extends PrintEditionItem {
+    constructor(author, name, releaseDate, pagesCount) {
         super(name, releaseDate, pagesCount);
         this.author = author;
         this.type = "book";    
     }   
 }
 
-class Novelbook extends Book() {
+class NovelBook extends Book {
     constructor(name, releaseDate, pagesCount, author) {
         super(name, releaseDate, pagesCount, author);
         this.type = "novel";
     }
 }
 
-class Fantastic extends Book() {
+class FantasticBook extends Book {
     constructor(name, releaseDate, pagesCount, author) {
         super(name, releaseDate, pagesCount, author);
         this.type = "fantastic";
     }
 }
 
-class Detective extends Book() {
+class DetectiveBook extends Book {
     constructor(name, releaseDate, pagesCount, author) {
         super(name, releaseDate, pagesCount, author);
         this.type = "detective";
+    }
+}
+
+class Library {
+    constructor(name){
+        this.name = name;
+        this.books = [];
+    }
+
+    addBook(book) {
+        if (book._state > 30) {
+            this.books.push(book);
+        }
+    }
+
+    findBookBy(type, value) {
+     for (let i = 0; i < this.books.length; i++) {
+        //  if(el.this.books[i] == type && )
+     }
+    }
+
+    giveBookByName(bookName) {
+        for (let i = 0; this.books.length; i++) {
+            if(this.books[i].name == bookName) {
+                this.books[i].shift;
+                return this.books[i];
+            }else return null;
+        }
     }
 }
