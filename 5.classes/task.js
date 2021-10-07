@@ -1,5 +1,4 @@
 class PrintEditionItem {
-
     constructor(name, releaseDate, pagesCount) {
         this.name = name;
         this.releaseDate = releaseDate;
@@ -27,7 +26,6 @@ class PrintEditionItem {
 }
 
 class Magazine extends PrintEditionItem() {
-
     constructor(name, releaseDate, pagesCount, author) {
         super(name, releaseDate, pagesCount);
         this.author = author;
@@ -36,7 +34,6 @@ class Magazine extends PrintEditionItem() {
 }
 
 class Book extends PrintEditionItem() {
-
     constructor(name, releaseDate, pagesCount, author) {
         super(name, releaseDate, pagesCount);
         this.author = author;
