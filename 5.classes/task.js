@@ -74,17 +74,55 @@ class Library {
     }
 
     findBookBy(type, value) {
-     for (let i = 0; i < this.books.length; i++) {
-        //  if(el.this.books[i] == type && )
-     }
+        for (let book of this.books) {
+            if (book[type] === value) {
+                return book;
+            }
+        }
+        return null;
     }
 
     giveBookByName(bookName) {
-        for (let i = 0; this.books.length; i++) {
-            if(this.books[i].name == bookName) {
-                this.books[i].shift;
-                return this.books[i];
-            }else return null;
+        let book = this.findBookBy("name", bookName);
+        let index = this.books.indexOf(book);
+        if (index > -1) {
+            this.books.splice(index, 1);
         }
+        return book;
     }
 }
+
+
+function Student(name, gender, age) {
+    this.name = name,
+    this.gender = gender,
+    this.age = age
+  }
+  
+  Student.prototype.setSubject = function (subjectName) {
+    this.subject = subjectName;
+  }
+  
+  Student.prototype.addMark = function (mark) {
+    if (this.marks === undefined) {
+      this.marks = [];
+    }
+    this.marks.push(mark);
+  }
+  Student.prototype.addMarks = function (...mark) {
+    if (this.marks === undefined) {
+      this.marks = [];
+    }
+    this.marks.push(...mark);
+  }
+  
+  Student.prototype.getAverage = function () {
+    let sum = this.marks.reduce((total, amount) => total + amount);
+    return (sum / this.marks.length);
+  }
+  
+  Student.prototype.exclude = function (reason) {
+    delete this.subject;
+    delete this.marks;
+    this.excluded = reason;
+  }
