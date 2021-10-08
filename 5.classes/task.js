@@ -107,8 +107,10 @@ function Student(name, gender, age) {
     if (this.marks === undefined) {
       this.marks = [];
     }
-    this.marks.push(mark);
+    if (0 < mark < 6) {this.marks.push(mark);
+    } else console.log("Ошибка, оценка должна быть числом от 1 до 5")   
   }
+
   Student.prototype.addMarks = function (...mark) {
     if (this.marks === undefined) {
       this.marks = [];
@@ -125,4 +127,8 @@ function Student(name, gender, age) {
     delete this.subject;
     delete this.marks;
     this.excluded = reason;
+  }
+
+  Student.prototype.getAverageBySubject = function(subject) {
+      
   }
