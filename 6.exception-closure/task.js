@@ -42,9 +42,9 @@ function getTriangle(a, b, c) {
         let newTriangle = new Triangle(a, b, c);
         return newTriangle;
     }catch (err) {
-    } 
-    return {
-        getPerimeter: () => "Ошибка! Треугольник не существует", 
-        getArea: () => "Ошибка! Треугольник не существует"
+            return {
+                getPerimeter: () => "Ошибка! Треугольник не существует", 
+                getArea: () => "Ошибка! Треугольник не существует"
         }
     }
+}
