@@ -47,13 +47,26 @@ function debounceDecoratorNew(func, ms) {
   return wrapper
 }
 
-function debounceDecorator2(func) {
-    
+function debounceDecorator2(func, ms) {
   
+  let timeout 
+
+  let flag = false;
+
+  wrapper.history = []
 
   function wrapper(...args) {
-
-    return func.apply(this, args)
+    wrapper.history.push(args)
+    if (!flag) {
+      func(...args)
+      flag = true;
+    } else {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => { 
+        func(...args); 
+        flag = false
+      }, ms);
+    }
   }
   return wrapper
 }
