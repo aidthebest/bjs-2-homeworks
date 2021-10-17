@@ -1,8 +1,9 @@
 function cachingDecoratorNew(func) {
   
   let cache = []
-  function wrapper(...args) {
 
+  function wrapper(...args) {
+    // let cache = []
     let key = args.toString();
     console.log(cache);
     if (key in cache) {
@@ -24,10 +25,35 @@ function cachingDecoratorNew(func) {
 }
 
 
-function debounceDecoratorNew(func) {
-  // Ваш код
+function debounceDecoratorNew(func, ms) {
+  
+  let timeout 
+
+  let flag = false;
+
+  function wrapper(...args) {
+
+    if (!flag) {
+      func(...args)
+      flag = true;
+    } else {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => { 
+        func(...args); 
+        flag = false
+      }, ms);
+    }
+  }
+  return wrapper
 }
 
 function debounceDecorator2(func) {
-  // Ваш код
+    
+  
+
+  function wrapper(...args) {
+
+    return func.apply(this, args)
+  }
+  return wrapper
 }
