@@ -5,12 +5,12 @@ function testCase () {
 
     clock.addClock(t, () => console.log("ping-pong"),1);
 
-    clock.addClock((t + ??), () => {
+    clock.addClock(("14:59"), () => {
         console.log("ping-pong 2");
         clock.removeClock(2);
     }, 2);
 
-    clock.addClock((t + ??), () => {
+    clock.addClock(("15:00"), () => {
         console.log("ping-pong 3");
         clock.stop();
         clock.clearAlarms();

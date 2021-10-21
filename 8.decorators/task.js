@@ -1,26 +1,27 @@
 function cachingDecoratorNew(func) {
   
-  let cache = []
+  let cache = [];
 
   function wrapper(...args) {
-    // let cache = []
-    let key = args.toString();
+    
+    hash = args.join(',');
+
     console.log(cache);
-    if (key in cache) {
-      return "Из кэша: " + cache[key]
+    if (hash in cache) {
+      return "Из кэша: " + cache[hash]
+
+    } else if (cache.length > 4) { 
+      cache.splice(0, 1);
+      cache[hash]= func(...args);
+      return "Вычисляем: " +  cache[hash];
+
+      
     } else {
-      let result = func(...args);
-      cache[key] = result;
-      cache.push(func(...args));
-      if (cache.length > 5) {
-        cache.splice(0, 1);
-      }
+      cache[hash]= func(...args);
       console.log(cache);
-      return "Вычисляем: " + result;
+      return "Вычисляем: " +  cache[hash];
     }
-
   }
-
   return wrapper
 }
 
