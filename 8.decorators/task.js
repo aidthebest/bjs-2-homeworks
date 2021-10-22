@@ -10,7 +10,7 @@ function cachingDecoratorNew(func) {
     if (hash in cache) {
       return "Из кэша: " + cache[hash]
 
-    } else if (Object.keys(cache).length === 5) {
+    } else if (Object.keys(cache).length > 4) {
       delete cache[Object.keys(cache)[0]];
       // else if (cache.length > 4) { 
       // cache.splice(0, 1);
