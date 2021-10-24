@@ -25,7 +25,9 @@ class AlarmClock {
     }
     getCurrentFormattedTime() {
         let date = new Date();
-        let time = date.getHours() + ":" + date.getMinutes();
+        let currentHours = ("0" + date.getHours()).slice(-2);
+        let currentMinutes = ("0" + date.getMinutes()).slice(-2);
+        let time = currentHours + ":" + currentMinutes;
         return time;
     }
     start() {
